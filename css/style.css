@@ -1,0 +1,315 @@
+/*
+-----Colors---
+Main:#2196a5 
+secondary:#db0b0b 
+third color:#f4f4f8
+fourth color:#e6e6ea 
+fifth color:#fed766 
+------########----
+font-family: 'Amatic SC', cursive; #main-title
+font-family: 'Patrick Hand SC', cursive; #card-title
+font-family: 'Handlee', cursive; #card description
+font-family: 'Gruppo', cursive; #footer
+
+*/
+* {
+    box-sizing: border-box;
+  }
+body ,html {
+    height: 100%;
+    margin:0; /*Remove scroll bar at bottom*/
+}
+html{
+    background: #fff     ;
+}
+/*Nav section starts here*/
+#nav{
+    min-height: 62px;
+    
+}
+.topNav{
+    background:#2196a5; 
+    height: auto;
+    width: 100%;
+    text-align: end;
+    font-size:  0;
+    position: fixed;
+    z-index: 900;
+}
+.topNav a{
+    margin: 0;
+    text-decoration: none;
+    padding: 8px;
+    padding-left: 25px;
+    padding-right: 25px;
+    position: relative;
+    top: -15px;
+    color: #f4f4f8;
+    font-size: 20px;
+    background: #db0b0b;
+}
+.topNav a:hover{
+    background: #f4f4f8;
+    color: #db0b0b;
+}
+.topNav span{
+    width: 100%;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-right: 20px;
+    float: left;
+    font-size: 25px;
+    text-align: left;
+    border-bottom: 1px solid #f4f4f8;
+    color: #f4f4f8;
+}
+.menu-bar{
+    display: none;
+
+}
+.menu{
+    display: block;
+    width: 60%;
+    float: right;
+    margin-top: 30px;
+}
+/*showcase section starts here*/
+#portfolio{
+    height: 100%-62px;
+    padding-bottom: 30px;
+
+}
+.main-title{
+    width: 70%;
+    margin: auto;
+    margin-top: 2%;
+}
+.rotate{
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    background: #f5c842;
+    transform: rotate(45deg);
+}
+.main-title h1{
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    margin-left: 15px;
+    font-size: 80px;
+    font-family: 'Amatic SC', cursive;
+    color: #2196a5;
+}
+.main-title hr{
+    display: inline-block;
+    margin: 0;
+    width: 100%;
+    border: #f5c842 1px solid;
+    border-radius: 5px;
+}
+.portfolio-wrapper{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+
+
+}
+.sec-title{
+    width: 80%;
+    margin: auto;
+    padding: 0;
+    background: #2196a5;
+    color: #f4f4f8;
+    border-radius: 10px;
+    border-bottom: #db0b0b 5px solid;
+    font-size: 30px;
+    margin-bottom: 40px;
+    margin-top:40px;
+}
+.sec-title h2{
+    margin: 0;
+    font-family: 'Handlee', cursive;
+}
+
+
+.card-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+.card{
+    background: #2196a5;
+    width: 22%;
+    border-radius: 8px;
+    color:#f4f4f8;
+    display: flex;
+    flex-direction: column;
+    transition: transform 1s;
+    
+
+}
+.card:hover{
+    transform: scale(1.2,1.2)
+}
+.card h3{
+    width: 100%;
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 30px;
+    padding: 10px;
+    text-align: center;
+    margin: 0;
+}
+.card img{
+    width: 85%;
+    min-height: 175px;
+    max-height: 176px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card p{
+    width: 90%;
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.card button{
+    width:90%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background: #5d6668;
+    color: #f4f4f8;
+    font-family: 'Handlee', cursive;
+    font-size: 20px;
+    
+    
+}
+.card a{
+    width: 100%;
+    margin-top: auto; 
+    align-self: flex-end;
+}
+
+.card button:hover{
+    color: #085863;
+    background: #f4f4f8;
+}
+.footer{
+    background: #2196a5;
+    height: auto;
+}
+.citation{
+    font-family: 'Gruppo', cursive;
+    font-size: 30px;
+    color: #f4f4f8;
+    width: 100%;
+    
+    margin: auto;
+}
+.citation p{
+    width: 70%;
+    padding-top: 25px;
+    margin: auto;
+    text-align: center;
+    text-decoration-line: underline;
+    
+}
+
+.footer-icons{
+    text-align: center;
+    color: #f4f4f8;
+}
+.footer i{
+    margin: 20px;
+}
+.footer a{
+   color: white;
+}
+.year{
+    width: 70%;
+    margin: auto;
+    color: #f4f4f8;
+    padding-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+}
+@media (max-width: 1199.98px) { 
+    .card{
+        width: 48%;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width: 767.98px) { 
+    .portfolio-wrapper{
+        width: 80%;
+    }
+    .card-wrapper{
+        margin-top: 30px;
+    }
+
+    .rotate{
+        display: none;
+    }
+    .sec-title{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .main-title{text-align: center;}
+
+    .card{
+        width: 90%;
+        margin: auto;
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .card img{
+        width: 80%;
+        min-height: 174px;
+        max-height: 175px;
+    }
+    .menu-bar{
+        display: inline;
+        right: 30px;
+    }
+    .menu-item{display: none;}
+    .topNav a{
+        width: 100%;
+        top: 0;
+    }
+    .card:hover{
+        transform: scale(1.1,1.1)
+    }
+    .card h3{
+
+        font-size: 22px;
+
+    }
+    .card p{
+        font-size: 14px;
+        
+    }
+
+
+}
+/*
+@media (max-width: 575.98px) { ... }
+
+// Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { ... }
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { ... }
+
+// Large devices (desktops, less than 1200px)
+@media (max-width: 1199.98px) { ... }
+*/

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/css.css">
+	<title>3, 2, 1, Fight!</title>
+	<style>
+#background{
+    background-image: url('background.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    
+}
+	</style>
+    <script type="text/javascript">
+        class player{
+            constructor(name,health,attack,defense){
+            this.name=name;
+            this.health=health;
+            this.attack=attack;
+            this.defense=defense;
+            this.frame=name+"frame";
+            }
+            attacking (attacked){
+                var health=attacked.health;
+                var attackforce=Math.floor(Math.random() * (this.attack - 1 + 1) ) + 1;
+                health=health-attackforce;
+                return health;
+            }
+        }
+        const player1=new player("player1",100,15,15);
+        const player2=new player("player2",100,15,15);
+        function playerattack(attacker,attacked){
+            result=attacker.attacking(attacked);
+            if (result<0){
+                result=0;
+            }
+            attacked.health=result;
+            console.log(result);
+            document.getElementById(attacked.name).style.width=result+"%";
+            if (attacked.health==0){
+                if (attacked.frame=="player1frame"){
+                    setTimeout(dead,500,"jack/dead1.png");
+                    setTimeout(dead,1000,"jack/dead2.png");
+                    setTimeout(dead,1500,"jack/dead3.png");
+                    setTimeout(dead,2000,"jack/dead4.png");
+                    }
+                if (attacked.frame=="player2frame"){
+                    setTimeout(dead,500,"robot/dead1.png");
+                    setTimeout(dead,1000,"robot/dead2.png");
+                    setTimeout(dead,1500,"robot/dead3.png");
+                    setTimeout(dead,2000,"robot/dead4.png");
+                    }
+            }
+            function dead(img) {
+              document.getElementById(attacked.frame).innerHTML = '<img src="'+img+'" width="300px">';
+            }
+
+        }
+        
+
+    </script>
+    </<head>
+    <body>
+    <div class="container " id="background">
+        <div class="row ">
+            <div class="col-5 mt-5" >
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" id="player1"></div>
+                </div>
+                <p><h5 class="text-white">Player</h5></p>
+            </div>
+        <div class="col-2"></div>
+            <div class="col-5 mt-5" >
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" id="player2"></div>
+                    
+                </div>
+                <p><h5 class="text-white text-right">Computer</h5></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <br><br><br>
+                <br><br><br>
+                <br><br><br>
+                <br><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6" id="player1frame">
+                <img src="jack/idle.png" width="200px">
+            </div>
+            <div class="col-6 text-right" id="player2frame">
+                <img src="robot/idle.png" width="300px">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="form-control bg-dark text-white col-8" onclick="playerattack(player1,player2);">Fight!</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="form-control bg-dark text-white col-8 float-right" onclick="playerattack(player2,player1);">Fight!</button>
+            </div>
+        </div>
+    </div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>3, 2, 1, Fight!</title>
+	<style>
+#background{
+    background-image: url('background.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 800px;
+    
+}
+#player1image{
+    height: 350px;
+    width: 483px;
+    background: url('jack/dead1.gif') 2838px 0px;  
+}
+#player2image{
+    height: 350px;
+    width: 393px;
+    background: url('robot/dead1.png') 0px 0px;  
+}
+	</style>
+<script type="text/javascript">
+        class player{
+            constructor(name,health,attack,frame,position){
+            this.name=name;
+            this.health=health;
+            this.attack=attack;
+            this.frame=frame;
+            this.positionn=position;
+            }
+            attacking (attacked){
+                var health=attacked.health;
+                var attackforce=Math.floor(Math.random() * (this.attack - 1 + 1) ) + 1;
+                health=health-attackforce;
+                return health;
+            }
+        }
+        const player1=new player("player1",100,25,'player1image',473);
+        const player2=new player("player2",100,25,'player2image',393);
+        function playerattack(attacker,attacked){
+            result=attacker.attacking(attacked);
+            if (result<0){
+                result=0;
+            }
+            attacked.health=result;
+            document.getElementById(attacked.name).style.width=result+"%";
+            
+            if (attacked.health==0){
+                var positionimg=0,str="",image=document.getElementById(attacked.frame);
+                var i;
+                var time=0;
+                nslides=6;
+                if (attacked.name=='player2'){
+                    nslides=7;
+                }
+                for (i=1;i<nslides;i++){
+                    positionimg=positionimg-attacked.positionn;
+                    console.log(positionimg);
+                    str=positionimg+'px 0px';
+                    time=time+75;
+                    setTimeout(dead,time,str,image);
+                }
+            }
+            function dead(str,image) {
+                image.style.backgroundPosition=str;
+            }
+
+        }
+
+        
+
+    </script>
+    </head>
+    <body >
+            <audio  autoplay loop>
+                    <source src="boss.mp3" >
+                    Your browser does not support the audio element.
+                  </audio>
+    <div class="container " id="background">
+        <div class="row ">
+            <div class="col-5 mt-5" >
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" id="player1"></div>
+                </div>
+                <p><h5 class="text-white">Player</h5></p>
+            </div>
+        <div class="col-2"></div>
+            <div class="col-5 mt-5" >
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="width: 100%" id="player2"></div>
+                    
+                </div>
+                <p><h5 class="text-white text-right">Computer</h5></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <br><br><br>
+                <br><br><br>
+                <br><br><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6" >
+                <p id='player1image'></p>
+            </div>
+            <div class="col-6 ">
+                <p class='float-right' id='player2image'></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="form-control bg-dark text-white col-8" onclick="playerattack(player1,player2);">Fight!</button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="form-control bg-dark text-white col-8 float-right" onclick="playerattack(player2,player1);">Fight!</button>
+            </div>
+        </div>
+    </div>
+
+ 
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/images/favicon (1).ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Gruppo|Amatic+SC|Handlee|Patrick+Hand+SC" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Ivan Martinez</title>
+
+</head>
+<body id="home">
+    <section id="nav">
+        <div class="topNav">
+            <span>Ivan Martinez</span>
+            <span class="menu-bar" onclick="MenuToggler();"><i class="fas fa-bars"></i></span>
+            <a class="menu-item" name="nav-item" href="#home">Home</a>
+            <a class="menu-item" name="nav-item" href="#web-dev">Web Development</a>
+            <a class="menu-item" name="nav-item" href="#game-prog">Game Programming</a>
+            <a class="menu-item" name="nav-item" href="#contact">Contact Me</a>
+        </div>       
+    </section>
+    <section >
+        <div class="main-title">
+            <div class="rotate"></div>
+            <h1>My Portfolio</h1>
+            <hr>
+        </div>
+        <div id="web-dev" class="portfolio-wrapper">
+            <div class="sec-title">
+                <h2>Web Development</h2>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <h3>Management System</h3>
+                    <img src="img/gymsystem.PNG" alt="">
+                    <p>HTML, CSS, JAVASCRIPT, PHP, BOOTSTRAP have been combined to make this web-based management system. In addition, MYSQL has been used to collect the data.</p>
+                    <a href="gym/" target="blank"><button>See Website</button></a>
+                </div>
+                <div class="card">
+                    <h3>Beat Down!</h3>
+                    <img src="img/javascript.PNG" alt="">
+                    <p>Beat Down! is a fighting game created in Javascript. Players will take turns to beat each other. It's fun and amazing!</p>
+                    <a href="game/" target="blank"><button>See Website</button></a>
+                </div>
+                <div class="card">
+                    <h3>Glozzom</h3>
+                    <img src="img/glozzom.PNG" alt="">
+                    <p>Glozzom is a web-page template created with BOOTHSTRAP and has been modified with CSS to feature a sleek design </p>
+                    <a href="glozzom/" target="blank"><button>See Website</button></a>
+                </div>
+                <div class="card">
+                    <h3>CMS for a Church</h3>
+                    <img src="img/church.PNG" alt="">
+                    <p>CMS system created with PHP, BOOTHSTRAP, MYSQL. Allows webmaster to administer webpage content throug an admin portal.</p>
+                    <a href="iglesia/" target="blank"><button>See Website</button></a>
+                </div>
+            </div>
+            <div id="game-prog" class="sec-title">
+                <h2>Python Game Programming</h2>
+            </div>
+            <div class="card-wrapper">
+                <div class="card">
+                    <h3>Alien Invasion</h3>
+                    <img src="img/pythongame.PNG" alt="">
+                    <p>Alien Invasion is a shooting game created in Python. When the score goes up, the level of dificulty goes up as well. The game keeps a record of the top 5 scores.</p>
+                    <a href="resources/dist.zip"><button>Download game</button></a>
+                </div>
+                <div class="card">
+                    <h3>Pong</h3>
+                    <img src="img/pong.PNG" alt="">
+                    <p>Take down all the boxes to win. The boxes will have different colors indicating how many hits they have left.</p>
+                    <a href="resources/ping_pong.zip"><button>Download game</button></a>
+                </div>
+                <div class="card">
+                    <h3>Stick Man</h3>
+                    <img src="img/stickman.PNG" alt="">
+                    <p>It takes skill to go to the top! Climb up and don't fall to win. </p><a href="resources/stickman.zip"><button>Download game</button></a>
+                </div>
+                <div class="card">
+                    <h3>Collect</h3>
+                    <img src="img/collect.PNG" alt="">
+                    <p>Collect all the boxes to win. Collect is a game developed with the turtle library. It has been designed to be easy to introduce programming to children. </p><a href="resources/testnew.zip"><button>Download game</button></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footer">
+        <div class="citation">
+            <p><strong>Life is only one. Enjoy it to the fullest!</strong></p>
+            <hr>
+        </div>
+        <div class="footer-icons">
+            <a href="https://www.linkedin.com/in/itivanmartinez/"><i class="fab fa-linkedin fa-5x"></i></a>
+            <i class="fab fa-github fa-5x"></i>
+            <i><img src="img/replit.png" style="filter: brightness(0) invert(1);"></i>
+        </div>
+        <div class="year">
+            <p>Copyright <span id="year"></span></p>
+        </div>
+    </section>
+    <script>
+    document.getElementById('year').innerHTML=(new Date().getFullYear());
+    </script>
+    <script>
+        
+        function MenuToggler(){
+            menu=document.getElementsByName("nav-item");
+            for (item in menu){
+            if (menu[item].className==="menu-item"){
+               menu[item].className="menu"; 
+            }else{
+                menu[item].className="menu-item";
+            }}
+
+            
+        }
+        
+
+    </script>
+</body>
+</html>
